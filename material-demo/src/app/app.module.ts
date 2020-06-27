@@ -10,6 +10,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponent } from './home/home.component';
 import { EmpDetailDialogComponent } from './emp-detail-dialog/emp-detail-dialog.component';
+import { MatTableModule } from '@angular/material/table';
+
+
+const material = [MatButtonModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTableModule];
+
 
 @NgModule({
   declarations: [
@@ -18,15 +27,14 @@ import { EmpDetailDialogComponent } from './emp-detail-dialog/emp-detail-dialog.
     EmpDetailDialogComponent
   ],
   entryComponents: [EmpDetailDialogComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule
+    material
   ],
+  exports: [material],
   providers: [],
   bootstrap: [AppComponent]
 })
