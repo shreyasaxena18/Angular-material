@@ -11,13 +11,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponent } from './home/home.component';
 import { EmpDetailDialogComponent } from './emp-detail-dialog/emp-detail-dialog.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 
 const material = [MatButtonModule,
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTableModule];
+  MatTableModule,
+  MatIconModule
+];
 
 
 @NgModule({

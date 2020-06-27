@@ -1,5 +1,3 @@
-<p>home works!</p>
-
 <button mat-raised-button color="primary" (click)="addEmpDialog()">Add Employee</button>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -28,7 +26,11 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let element"> {{element.actions}} </td>
+
+        <td mat-cell *matCellDef="let element">
+            <mat-icon>edit</mat-icon>
+            <mat-icon style="padding-left: 20px;"> delete</mat-icon>
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
