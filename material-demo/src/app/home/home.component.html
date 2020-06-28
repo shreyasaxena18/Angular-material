@@ -2,8 +2,6 @@
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">
@@ -28,7 +26,7 @@
         <th mat-header-cell *matHeaderCellDef> Actions </th>
 
         <td mat-cell *matCellDef="let element">
-            <mat-icon>edit</mat-icon>
+            <mat-icon (click)="editEmpDialog(element)"> edit </mat-icon>
             <mat-icon style="padding-left: 20px;"> delete</mat-icon>
         </td>
     </ng-container>
@@ -36,3 +34,59 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<div class="container">
+    <div class="row p-2">
+        <div class="col-md-12 p-2 justify-content-center">
+            <h4>All Employee Data</h4>
+        </div>
+
+        <div class="col-md-3" *ngFor="let item of employee">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        Name: {{item.name}}
+                    </div>
+                    <div class="card-subtitle">
+                        Email: {{item.email}}
+                    </div>
+                    <span>
+                        <button href="#" (click)="editEmpDialog(item)" class="btn btn-primary">Edit Employee</button>
+                        <button href="#" (click)="Deleteemployee(item.id)" class="btn btn-danger">Delete
+                            Employee</button>
+                    </span>
+                </div>
+            </div>
+
+            <!-- <ng-template #elseBlock>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        Edit Employee
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" [(ngModel)]="item.editname" class="form-control">
+                            </div>
+                            <div class="col-md-12">
+                                <input type="number" [(ngModel)]="item.editage" class="form-control">
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" [(ngModel)]="item.editaddress" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn btn-danger btn-xs" (click)="item.isedit = false">Cancel</a>
+                    <a href="#" class="btn btn-primary btn-xs" (click)="Updatarecord(item)">Update Employee</a>
+
+                </div>
+            </div>
+        </ng-template> -->
+
+
+
+        </div>
+    </div>
+</div>

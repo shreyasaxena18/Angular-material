@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "employeecrudangular8": {
+      "hosting": {
+        "material-demo": [
+          "employeecrudangular8"
+        ]
+      }
+    }
+  }
+}

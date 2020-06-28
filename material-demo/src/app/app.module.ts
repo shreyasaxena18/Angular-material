@@ -12,8 +12,23 @@ import { HomeComponent } from './home/home.component';
 import { EmpDetailDialogComponent } from './emp-detail-dialog/emp-detail-dialog.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+//import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { AngularFireModule } from '@angular/fire';
+import { FormsModule } from '@angular/forms';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { EmployeeService } from './service/employee.service'
 
-
+const firebaseConfig = {
+  apiKey: "AIzaSyAJ3b-wu6ahs9jo6gXN6qlTMHjru9E4MuQ",
+  authDomain: "employeecrudangular8.firebaseapp.com",
+  databaseURL: "https://employeecrudangular8.firebaseio.com",
+  projectId: "employeecrudangular8",
+  storageBucket: "employeecrudangular8.appspot.com",
+  messagingSenderId: "254203672081",
+  appId: "1:254203672081:web:22cc97a3ce890be3f223b0",
+  measurementId: "G-N3VFW8BX3H"
+}
 const material = [MatButtonModule,
   MatDialogModule,
   MatFormFieldModule,
@@ -35,10 +50,14 @@ const material = [MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    material
+    material,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    FormsModule
+    //AngularFirestore
   ],
   exports: [material],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
