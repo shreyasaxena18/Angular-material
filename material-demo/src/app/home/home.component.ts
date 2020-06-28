@@ -65,7 +65,12 @@ export class HomeComponent implements OnInit {
   }
 
   addEmpDialog() {
-    this.dialog.open(EmpDetailDialogComponent);
+    //this.dialog.open(EmpDetailDialogComponent);
+    this.dialog.open(EmpDetailDialogComponent, {
+      data: {
+        name: ""
+      }
+    });
   }
 
   editEmpDialog(item) {
@@ -73,7 +78,12 @@ export class HomeComponent implements OnInit {
     // this.empname = item.name;
     // this.empemail = item.email;
     console.log(item);
-    this.dialog.open(EmpDetailDialogComponent);
+    this.dialog.open(EmpDetailDialogComponent, {
+      data: {
+        name: item.name,
+        email: item.email
+      }
+    });
 
   }
 }

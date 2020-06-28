@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { EmployeeService } from '../service/employee.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+export interface DialogData {
+  name: string;
+  email: string;
+}
 
 
 @Component({
@@ -16,7 +21,8 @@ export class EmpDetailDialogComponent implements OnInit {
   empname: string;
   empemail: string;
 
-  constructor(public empService: EmployeeService) {
+  constructor(public empService: EmployeeService, public dialogRef: MatDialogRef<EmpDetailDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
   }
 
   add_Emp() {
